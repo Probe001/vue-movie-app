@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './Home'
 import About from './About'
-import Movie from './movie'
+import Movie from './Movie'
 import NotFound from './NotFound'
 
 export default createRouter({
