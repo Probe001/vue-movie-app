@@ -8,8 +8,23 @@ const path = _require('path')
 const HtmlPlugin = _require('html-webpack-plugin')
 const CopyPlugin = _require('copy-webpack-plugin')
 const { VueLoaderPlugin } = _require('vue-loader')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
+  // 번들링 후 결과물의 처리 방식 등 다양한 플러그인들을 설정
+  plugins: [
+    new HtmlPlugin({
+      template: './index.html'
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'static' }
+      ]
+    }),
+    new VueLoaderPlugin(),
+    new Dotenv()
+  ],
+
   resolve: {
     // 경로에서 확장자 생략 설정
     extensions: ['.js', '.vue'],
@@ -67,19 +82,6 @@ module.exports = {
       }
     ]
   },
-
-  // 번들링 후 결과물의 처리 방식 등 다양한 플러그인들을 설정
-  plugins: [
-    new HtmlPlugin({
-      template: './index.html'
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: 'static' }
-      ]
-    }),
-    new VueLoaderPlugin()
-  ],
 
   // 개발 서버 옵션
   devServer: {
