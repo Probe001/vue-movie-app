@@ -87,17 +87,6 @@ export default {
       id: this.$route.params.id
     })
   },
-  computed: {
-    ...mapState('movie', [
-      'theMovie',
-      'loading'
-    ])
-  },
-  data() {
-    return {
-      imageLoading : true
-    }
-  },
   methods: {
     requestDiffSizeImage(url, size = 700) {
       if (!url || url === 'N/A'){
@@ -112,7 +101,19 @@ export default {
       return src
       }
     },
+  },
+  computed: {
+    ...mapState('movie', [
+      'theMovie',
+      'loading'
+    ])
+  },
+  data() {
+    return {
+      imageLoading : true
+    }
   }
+  
 }
 </script>
 
